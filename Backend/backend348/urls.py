@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+# from rest_framework import views
+from core.views import ReactView
+# from django.conf.urls import url
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+	path('admin/', admin.site.urls),
+	path('wel/', ReactView.as_view(), name="something"),
+
 ]
+

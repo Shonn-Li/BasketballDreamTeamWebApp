@@ -14,12 +14,12 @@ class PlayerInfoViewSet(viewsets.ModelViewSet):
 
 
 class UserViewSet(viewsets.ModelViewSet):
-    queryset = PlayerInfo.objects.all().order_by('user_id')
+    queryset = User.objects.all().order_by('user_id')
     serializer_class = UserSerializer
 
 
 class FavouritePlayerViewSet(viewsets.ModelViewSet):
-    queryset = PlayerInfo.objects.all().order_by('user_id')
+    queryset = FavouritePlayer.objects.all().order_by('user_id')
     serializer_class = FavouritePlayerSerializer
 
 

@@ -2,6 +2,15 @@ from rest_framework import serializers
 from .models import *
 
 
+class FileUploadSerializer(serializers.Serializer):
+	file = serializers.FileField()
+
+
+class SaveFileSerializer(serializers.Serializer):
+	class Meta:
+		model = File
+		fields = "__all__"
+
 class ReactSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = React

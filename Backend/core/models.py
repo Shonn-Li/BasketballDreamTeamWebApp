@@ -15,13 +15,13 @@ class PlayerInfo(models.Model):
     Age = models.IntegerField()
     Height_cm = models.IntegerField()
     Weight = models.IntegerField()
-    PTS = models.DecimalField(max_digits=10, decimal_places=2)
+    PTS = models.DecimalField(max_digits=10, decimal_places=3)
     Salary = models.IntegerField()
-    ATS = models.DecimalField(max_digits=10, decimal_places=2)
-    three_P_perc = models.DecimalField(max_digits=10, decimal_places=2)
-    TS_perc = models.DecimalField(max_digits=10, decimal_places=2)
-    TOV = models.DecimalField(max_digits=10, decimal_places=2)
-    TRB = models.DecimalField(max_digits=10, decimal_places=2)
+    AST = models.DecimalField(max_digits=10, decimal_places=3)
+    three_P_perc = models.DecimalField(max_digits=10, decimal_places=3)
+    TS_perc = models.DecimalField(max_digits=10, decimal_places=3)
+    TOV = models.DecimalField(max_digits=10, decimal_places=3)
+    TRB = models.DecimalField(max_digits=10, decimal_places=3)
 
     def __str__(self):
         return self.pid

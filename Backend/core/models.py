@@ -22,7 +22,7 @@ class PlayerInfo(models.Model):
     TOV = models.DecimalField(max_digits=10, decimal_places=3)
     TRB = models.DecimalField(max_digits=10, decimal_places=3)
 
-    def __str__(self):
+    def __int__(self):
         return self.pid
 
 

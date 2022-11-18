@@ -2,57 +2,35 @@ import * as React from 'react';
 import './PlayerCard.scss';
 import axios from 'axios';
 
-function PlayerCard() {
-  // return (
-  //   <div className="wrapper">
-  //     <Card
-  //       img=""
-  //       name=""
-  //       height=""
-  //       team=""
-  //     />
-
-  //       <Card
-  //       img=""
-  //       name=""
-  //       height=""
-  //       team=""
-  //     />
-
-  //       <Card
-  //       img=""
-  //       name=""
-  //       height=""
-  //       team=""
-  //     />
-
-  //       <Card
-  //       img=""
-  //       name=""
-  //       height=""
-  //       team=""
-  //     />
-
-  //       <Card
-  //       img=""
-  //       name=""
-  //       height=""
-  //       team=""
-  //     />
-  //   </div>
-  // );
+function PlayerCard(props) {
 
   const [state, setState] = React.useState(null);
+  const [renderstate, set] = React.useState(false);
+
+  const order = props.order;
+  const searchQuery = props.searchQuery;
+  const filter = props.filter;
 
   React.useEffect(() => {
     console.log("testing");
-    getPlayers();
-  })
+    fn();
+    if (filter === '') {
+      getPlayers();
+    } else {
+      getPlayersHeightOrder();
+    }
+  }, [renderstate])
+
+  function fn() {
+    setTimeout(() => {
+      set(prev => prev + 1)
+    }, 3000)
+  }
 
   function getPlayers() {
     axios({
       method:"GET",
-      url: "http://localhost:8000/api/"
+      url: `http://127.0.0.1:8000/api/search?search=${searchQuery}`
     }).then((res) => {
       const data = res.data;
       console.log(data);
@@ -65,31 +43,51 @@ function PlayerCard() {
     })
   }
 
-  if(!state) return null;
+  function getPlayersHeightOrder() {
+    axios({
+      method:"GET",
+      url: `http://127.0.0.1:8000/api/height`
+    }).then((res) => {
+      const data = res.data;
+      console.log(data);
+      setState(data);
+      console.log(state);
+    }).catch((error) => {
+      if(error.message) {
+        console.log(error.response);
+      }
+    })
+  }
 
-  return (
-    <div className='wrapper'>
-      {/* {state.map((player) => {
-        // <Card
-        //     img=""
-        //     name={player.Name}
-        //     height={player.Height_cm}
-        //     team={player.Tm}
-        // />
-        <p>
-          {player.Name}
-        </p>
-      })} */}
-        {state.map((player) => {
-          return <Card
-          img=""
-          name={player.Name}
-          height={player.Height_cm}
-          team={player.Tm}
-           />
-        })}
-    </div>
-  );
+  if (!state) return null;
+  
+  if (order === 'desc') {
+    return (
+      <div className='wrapper'>
+          {state.map((player) => {
+            return <Card
+            img=""
+            name={player.Name}
+            height={player.Height_cm}
+            team={player.Tm}
+             />
+          })}
+      </div>
+    );
+  } else {
+    return (
+      <div className='wrapper'>
+          {state.reverse().map((player) => {
+            return <Card
+            img=""
+            name={player.Name}
+            height={player.Height_cm}
+            team={player.Tm}
+             />
+          })}
+      </div>
+    );
+  }
 }
 
 function Card(props) {

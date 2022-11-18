@@ -4,6 +4,7 @@ from .models import PlayerInfo
 from rest_framework import viewsets, filters
 from rest_framework.response import Response
 from .serializer import PlayerInfoSerializer
+from django.db.models import Q
 
 
 class PlayerList(generics.ListCreateAPIView):
@@ -19,5 +20,10 @@ class PlayerSearch(generics.ListAPIView):
     serializer_class = PlayerInfoSerializer
     filter_backends = [filters.SearchFilter]
     search_fields = ['^Name']
+
+
+class PlayerSearchHeight(generics.ListAPIView):
+    queryset = PlayerInfo.objects.all().order_by('Height_cm')
+    serializer_class = PlayerInfoSerializer
 
 

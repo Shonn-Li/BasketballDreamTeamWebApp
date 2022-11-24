@@ -1,5 +1,6 @@
-# CS348-Project
-CS348 project repo, official title and details to be added.
+# BasketballDreamTeam
 
-develop -> branch to commit feature changes and bug fixes
-main -> branch used for hosting so no one must commit anything into this until we have develop functional
+A Django React web application targeted to help basketball fans analyze basketball player stats and build their own dream team.
+Frontend built with React, Material UI, Javascript
+Backend built with python, django, MySQL and AWS
+The latest version is still under development and current version is till sprint 2

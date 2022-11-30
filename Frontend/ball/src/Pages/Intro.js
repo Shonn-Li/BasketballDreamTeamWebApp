@@ -23,7 +23,7 @@ function Intro() {
    <Button
     variant="contained"
     onClick={() => {
-     history("/home");
+     history("/main");
     }}
    >
     Build Your Team Now!

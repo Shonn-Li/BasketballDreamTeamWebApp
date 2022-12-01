@@ -1,12 +1,15 @@
 import * as React from 'react';
 import './PlayerCard.scss';
 import axios from 'axios';
+import { red } from '@mui/material/colors';
+import IconButton from '@mui/material/IconButton';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import {grey} from '@mui/material/colors';
 
 function PlayerCard(props) {
 
   const [state, setState] = React.useState(null);
   const [renderstate, set] = React.useState(false);
-
   const order = props.order;
   const searchQuery = props.searchQuery;
   const filter = props.filter;
@@ -91,9 +94,30 @@ function PlayerCard(props) {
 }
 
 function Card(props) {
+  const [favIconColor, setFavIconColor] = React.useState("grey");
+  const onFavIconClick = () => {
+    //do other stuff
+    if (favIconColor == "grey") {
+      setFavIconColor("red");
+    }
+    else {
+      setFavIconColor("grey");
+    }
+  };
     return (
     <div className="card">
       <div className="card__body">
+        <IconButton className = "card__icon"
+          style={{
+            position: "absolute",
+            top: "3%",
+            left: "85%",
+            color: favIconColor,
+          }}
+          onClick={onFavIconClick}
+          >
+             <FavoriteIcon />
+        </IconButton>
         <img src={props.img} class="card__image" />
         <h2 className="card__name">{props.name}</h2>
           <p className="card__height">{props.height}</p>

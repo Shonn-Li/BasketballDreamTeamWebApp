@@ -1,35 +1,25 @@
-import { Box, Button, Grid } from "@material-ui/core";
-import { makeStyles } from "@material-ui/styles";
-// import { mergeClasses } from '@material-ui/styles';
-import React from "react";
+import React from 'react';
+// import '../App.css';
+import { Button } from '../features/Button.js';
 import { useNavigate } from "react-router-dom";
-import "../css/Intro.css";
-
-const useStyles = makeStyles({
- root: {
-  backgrond: "linear-gradient(45deg, #FE6B8B #FF8E53)",
-  border: 0,
-  marginBottom: 1,
-  borderRadius: 15,
-  color: "white",
-  padding: "15px 30px",
- },
-});
+import '../css/Intro.css';
 
 function Intro() {
- let history = useNavigate();
- return (
-  <header className="main-container">
-   <Button
-    variant="contained"
-    onClick={() => {
-     history("/main");
-    }}
-   >
-    Build Your Team Now!
-   </Button>
-  </header>
- );
+  return (
+    <div className='intro-container'>
+      <h1>YOUR DREAM TEAM AWAITS</h1>
+      <p>What are you waiting for?</p>
+      <div className='intro-btns'>
+        <Button
+          className='btns'
+          buttonStyle='btn--outline'
+          buttonSize='btn--large'
+        >
+          GET STARTED
+        </Button>
+      </div>
+    </div>
+  );
 }
 
 export default Intro;

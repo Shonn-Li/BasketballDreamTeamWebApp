@@ -1,0 +1,14 @@
+.setting-container {
+  background-color: grey;
+  height: 100vh;
+  width: 100%;
+}
+
+.info-container {
+  background-color: grey;
+  margin: 5;
+}
+
+.changepassword-container {
+  height: 100vh;
+}

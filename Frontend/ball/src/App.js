@@ -9,6 +9,7 @@ import Layout from "./Pages/Layout";
 import Intro from "./Pages/Intro";
 import Main from "./Pages/Main";
 import { useSelector } from "react-redux";
+import PlayerCard from "./Pages/PlayerCard";
 function App() {
  const { access_token } = useSelector((state) => state.auth);
  return (
@@ -16,7 +17,8 @@ function App() {
    <BrowserRouter>
     <Routes>
      <Route path="/" element={<Layout />}>
-      <Route index element={<Home />} />
+    <Route path="/welcome" element={<Intro />}/>
+      <Route index element={<Main />} />
       <Route path="contact" element={<Contact />} />
       <Route
        path="login"

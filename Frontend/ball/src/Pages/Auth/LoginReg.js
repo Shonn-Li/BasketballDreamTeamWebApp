@@ -2,6 +2,7 @@ import { Grid, Card, Tabs, Typography, Tab, Box } from "@mui/material";
 import { useState } from "react";
 import Registration from "./Registration";
 import UserLogin from "./UserLogin";
+import '../../css/Login.css'
 
 const TabPanel = (props) => {
  const { children, value, index } = props;
@@ -17,7 +18,7 @@ const LoginReg = () => {
   setValue(newValue);
  };
  return (
-  <>
+  <div class='login-container'>
    <Grid container sx={{ height: "90vh" }}>
     <Grid
      item
@@ -60,13 +61,12 @@ const LoginReg = () => {
       </Box>
       <Box textAlign="center" sx={{ mt: 2 }}>
        <Typography variant="h5" sx={{ fontWeight: "bold" }}>
-        Placeholder
        </Typography>
       </Box>
      </Card>
     </Grid>
    </Grid>
-  </>
+  </div>
  );
 };
 

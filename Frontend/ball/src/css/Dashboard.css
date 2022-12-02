@@ -12,3 +12,7 @@
 .changepassword-container {
   height: 100vh;
 }
+
+.card {
+  justify-content: start !important;
+}

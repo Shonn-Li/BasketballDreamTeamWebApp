@@ -86,10 +86,10 @@ function Main() {
                     padding: 20,
                 }}
             >
-                <Checkbox
+                {/* <Checkbox
                     icon={<StarBorderIcon />}
                     checkedIcon={<StarIcon />}
-                />
+                /> */}
                 {/* <ToggleButton>
       <StarBorderIcon />
      </ToggleButton> */}
@@ -115,10 +115,23 @@ function Main() {
                         </Select>
                     </FormControl>
                 </Box>
-                <Checkbox
+                <ToggleButtonGroup
+                    value={order}
+                    exclusive
+                    onChange={handleOrder}
+                    aria-label="sort order"
+                >
+                    <ToggleButton value="desc" aria-label="descending">
+                        <ArrowDownwardIcon />
+                    </ToggleButton>
+                    <ToggleButton value="asc" aria-label="ascending">
+                        <ArrowUpwardIcon />
+                    </ToggleButton>
+                </ToggleButtonGroup>
+                {/* <Checkbox
                     icon={<ArrowDownwardIcon />}
                     checkedIcon={<ArrowUpwardIcon />}
-                />
+                /> */}
             </div>
             <PlayerCard order={order} searchQuery={searchQuery} filter={sort} />
         </>
